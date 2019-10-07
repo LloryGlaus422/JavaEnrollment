@@ -54,6 +54,7 @@ public class Enroll {
                         boolean endRetrieve = true;
                         while (endRetrieve) {
                             transaction("retrieve");
+                            System.out.print("Input your choice: ");
                             int choiceRetrieve = Chioce.ans(write);
                             switch (choiceRetrieve) {
                                 case 1:
@@ -72,7 +73,7 @@ public class Enroll {
                                     break;
 
                                 case 2:
-                                   // System.out.println(Array.getAccList());
+                                    // System.out.println(Array.getAccList());
                                     Array.displayAccList();
                                     break;
                                 case 3:
@@ -200,7 +201,8 @@ public class Enroll {
                             boolean endDelete = true;
                             while (endDelete) {
                                 int choiceDelete = 0;
-                                System.out.print("1. Personal Info\n2. Delete Courses\n Input Number: ");
+                                System.out.print("1. Personal Info\n2. Delete Courses\n ");
+                                System.out.print("Input choice: ");
                                 try {
                                     choiceDelete = Chioce.ans(write);
                                 } catch (Exception e) {
@@ -226,7 +228,7 @@ public class Enroll {
                                         }
                                         break;
                                     default:
-                                        System.out.println("Invalid Input");
+                                        System.out.println("Invalid Choice");
                                         break;
                                 }
                                 endDelete = Chioce.endChoice(write, "delete");
@@ -238,32 +240,32 @@ public class Enroll {
                         boolean endUpdate = true;
                         while (endUpdate) {
 
-                            System.out.print("1. Personal Info\n2. Courses\nInput Number: ");
+                            System.out.print("1. Personal Info\n2. Courses\nInput your choice: ");
                             int choiceUpdate = Chioce.ans(write);
                             switch (choiceUpdate) {
                                 case 1:
                                     if (Array.getInfoList().size() != 0) {
-                                        System.out.println("Searching....");
+                                        System.out.print("Input id from Personal Information to update values \nInput id: ");
                                         int updateHolder = 0;
                                         try {
                                             updateHolder = write.nextInt();
                                         } catch (InputMismatchException e) {
-                                            System.out.println("Invalid Input");
+                                            System.out.println("Input id from Course Information to update values \nInput id:");
                                             continue;
                                         }
                                         Array.searchInfo(updateHolder);
                                         String fname = "";
                                         String lname = "";
                                         int age = 0;
-                                        System.out.print("Firstname: ");
+                                        System.out.print("Update Firstname To: ");
                                         fname = write.next();
-                                        System.out.print("LastnameL: ");
+                                        System.out.print("Update Lastname To: ");
                                         lname = write.next();
-                                        System.out.print("Age: ");
+                                        System.out.print("Update Age To: ");
                                         try {
                                             age = write.nextInt();
                                         } catch (InputMismatchException e) {
-                                            System.out.print("Invalid Input: ");
+                                            System.out.print("Invalid Choice: ");
                                             write.next();
                                             continue;
                                         }
@@ -288,17 +290,17 @@ public class Enroll {
 
                                 case 2:
                                     if (Array.getCourseList().size() != 0) {
-                                        System.out.println("Searching....");
+                                        System.out.print("Input id: ");
                                         int updateHolder2 = write.nextInt();
                                         Array.searchCourses(updateHolder2);
                                         String subject = "";
                                         String sched = "";
                                         int unit = 0;
-                                        System.out.print("Subject: ");
+                                        System.out.print("Update Subject To: ");
                                         subject = write.next();
-                                        System.out.print("Schedule: ");
+                                        System.out.print("Update Schedule To: ");
                                         sched = write.next();
-                                        System.out.println("Units: ");
+                                        System.out.println("Update Units To: ");
                                         try {
                                             unit = write.nextInt();
                                         } catch (InputMismatchException e) {
@@ -335,23 +337,23 @@ public class Enroll {
                             boolean endSearch = true;
                             while (endSearch) {
 
-                                System.out.println("1. Account\n2. Personal Info\n3 Courses");
+                                System.out.println("1. Account\n2. Personal Info\n3 Courses\nInput Choice: ");
                                 int choiceSearch = Chioce.ans(write);
                                 if (transactionChoice == 0) {
                                     continue;
                                 }
                                 switch (choiceSearch) {
                                     case 1:
-                                        System.out.println("Searching.....");
+                                        System.out.println("Input id: ");
                                         Array.searchAcc(write.nextInt());
                                         break;
 
                                     case 2:
-                                        System.out.println("Searching.....");
+                                        System.out.println("Input id: ");
                                         Array.searchInfo(write.nextInt());
                                         break;
                                     case 3:
-                                        System.out.println("Searching.....");
+                                        System.out.println("Input id: ");
                                         Array.searchCourses(write.nextInt());
                                         break;
 
